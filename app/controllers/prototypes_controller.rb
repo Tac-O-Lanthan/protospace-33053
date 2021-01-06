@@ -19,7 +19,7 @@ class PrototypesController < ApplicationController
     @prototype = Prototype.new(prototype_params)
     # createで保存すると以下if~endの処理を挟めないので、new~saveに分解する
     if @prototype.save
-      redirect_to prototype_path(@prototype.id)
+      redirect_to root_path
     else
       render :new
     end
@@ -42,7 +42,7 @@ class PrototypesController < ApplicationController
   end
 
   def destroy
-    prototype.destroy
+    @prototype.destroy
     redirect_to root_path
   end
 
